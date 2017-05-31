@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import { Router,Route, IndexRedirect,hashHistory } from 'react-router'
+import App from './views/App';
+import './styles/index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+const rootRoute = (
+    <Route path="/" >
+        <IndexRedirect to="app" />
+        <Route path="app" component={App}/>
+    </Route>
+);
+
+ReactDOM.render(
+    <Router history={hashHistory}
+            routes={rootRoute}
+    />,
+    document.getElementById('layout-content')
+);
