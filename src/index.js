@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router,Route,IndexRedirect,hashHistory } from 'react-router'
-import App from './views/App';
 import './styles/index.css';
-
+import { Router,Route,IndexRedirect,hashHistory } from 'react-router';
+import LayoutNav from './components/layout';
+import Login from './views/login';
 
 const rootRoute = (
     <Route path="/" >
-        <IndexRedirect to="app" />
-        <Route path="app" component={App}/>
+        <IndexRedirect to="layout" />
+        <Route path="layout" component={LayoutNav}>
+            <IndexRedirect to="login" />
+            <Route path="login" component={Login} />
+        </Route>
     </Route>
 );
 
