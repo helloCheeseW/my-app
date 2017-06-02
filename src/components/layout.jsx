@@ -18,16 +18,18 @@ class LayoutNav extends Component{
                             <li className={classNames({'active':pathname.indexOf('/users')>=0})}>
                                 <Link to={`/users`}><Icon type="user"/> 用户管理</Link>
                             </li>
-                            <li className={classNames({'active':pathname.indexOf('/circle/dynamic/relation/')>=0})}>
-                                <Link to={`/data`}><Icon type="user"/> 用户管理</Link>
+                            <li className={classNames({'active':pathname.indexOf('/produce')>=0})}>
+                                <Link to={`/produce`}><Icon type="user"/> 用户管理</Link>
                             </li>
-                            <li className={classNames({'active':pathname.indexOf('/circle/dynamic/config/')>=0})}>
-                                <Link to={`/date`}><Icon type="user"/> 用户管理</Link>
+                            <li className={classNames({'active':pathname.indexOf('/buy')>=0})}>
+                                <Link to={`/buy`}><Icon type="user"/> 用户管理</Link>
                             </li>
                         </ul>
                     </div>
                     <div className="content">
-                        {this.props.children}
+                        <div className="container">
+                            {this.props.children}
+                        </div>
                     </div>
                 </main>
             </div>

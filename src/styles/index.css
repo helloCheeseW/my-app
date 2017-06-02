@@ -18,14 +18,14 @@ body {
       font-size: 18px;
       padding: 0 20px;
       line-height: 50px;
-      background-color: #366162;
+      background-color: #004b49;
       color: #fff;
   }
   .menu {
       height: 100%;
       width: 210px;
       float: left;
-      background-color: #366162;
+      background-color: #208583;
   }
   .content {
       height: 100%;
@@ -33,6 +33,12 @@ body {
       overflow: auto;
       margin-left: 210px;
       align-self: stretch;
+      background-color: #e6f3fa;
+  }
+  .container{
+      background-color: #fff;
+      padding:20px;
+      height:100%;
   }
 /***
 ***nav***
@@ -42,15 +48,18 @@ body {
     height:42px;
     line-height: 42px;
     background-color: #2f9492;
-    color:#fff;
     border-bottom:1px solid #088b85;
     text-align: center;
 }
 .menu ul li a{
     color: #fff;
+    text-decoration:none;
 }
 .active{
-    background-color: #9ec4c7!important;
+    background-color: #e6f3fa!important;
+}
+.active a{
+    color: #004b49!important;
 }
 /***
 ***login***

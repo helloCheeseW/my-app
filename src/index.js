@@ -12,6 +12,8 @@ ReactDOM.render((
         <Route component={LayoutNav}>
             <IndexRedirect to="/user" />
             <Route path="/users" component={Users}/>
+            <Route path="/produce" component={Users}/>
+            <Route path="/buy" component={Users}/>
         </Route>
         <Route path="/login" component={Login}/>
     </Router>
