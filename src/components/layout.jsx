@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
-const { Header, Content } = Layout;
+import classNames from 'classnames';
+import { Icon } from 'antd';
+import { Link } from 'react-router';
 
 class LayoutNav extends Component{
     render(){
+        const pathname=this.props.location.pathname;
         return(
             <div>
-                <Layout>
-                    <Header style={{ position: 'fixed', width: '100%' }}>
-                        <div className="logo" />
-                        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{ lineHeight: '64px' }}>
-                            <Menu.Item key="1">nav 1</Menu.Item>
-                            <Menu.Item key="2">nav 2</Menu.Item>
-                        </Menu>
-                    </Header>
-                    <Content style={{ padding: '0 50px', marginTop: 64, height:'100%' }}>
-                        <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                            {this.props.children}
-                        </div>
-                    </Content>
+                <header className="header">
 
-                </Layout>
+                </header>
+
+                <main className="main">
+                    <div className="menu">
+                        <ul>
+                            <li className={classNames({'active':pathname.indexOf('/users')>=0})}>
+                                <Link to={`/users`}><Icon type="user"/> 用户管理</Link>
+                            </li>
+                            <li className={classNames({'active':pathname.indexOf('/circle/dynamic/relation/')>=0})}>
+                                <Link to={`/data`}><Icon type="user"/> 用户管理</Link>
+                            </li>
+                            <li className={classNames({'active':pathname.indexOf('/circle/dynamic/config/')>=0})}>
+                                <Link to={`/date`}><Icon type="user"/> 用户管理</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="content">
+                        {this.props.children}
+                    </div>
+                </main>
             </div>
+
         )
     }
 }

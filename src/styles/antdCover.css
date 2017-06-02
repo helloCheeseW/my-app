@@ -1,0 +1,14 @@
+/***
+***btn***
+***/
+.ant-btn-primary{
+    background-color: #366162!important;
+    border-color: #366162!important;
+}
+.ant-btn-primary:hover{
+    background-color: #88a1a4!important;
+    border-color: #88a1a4!important;
+}
+/***
+***page***
+***/

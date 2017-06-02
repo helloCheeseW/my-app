@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
+import {Link} from 'react-router';
 const FormItem = Form.Item;
 
 class Login extends Component {
@@ -14,10 +15,10 @@ class Login extends Component {
   render() {
       const { getFieldDecorator } = this.props.form;
       return (
-      <div className="login">
-          <div className="box-shadow">
-              <h1>创建用户</h1>
-              <Form onSubmit={this.handleSubmit} className="login-form">
+      <div className="wrapper">
+          <div className="body">
+              <div className="title">Welcome</div>
+              <Form onSubmit={this.handleSubmit} className="form">
                   <FormItem>
                       {getFieldDecorator('userName', {
                           rules: [{ required: true, message: '请输入用户名' }],
@@ -33,9 +34,10 @@ class Login extends Component {
                       )}
                   </FormItem>
                   <FormItem>
-
-                      <Button type="primary" htmlType="submit" className="login-form-button">创建</Button>
-                      <a href="">操作已存在用户</a>
+                      <Button type="primary" htmlType="submit" className="btn">创建</Button>
+                      <div>
+                          <Link to={`/users`}>操作已存在用户</Link>
+                      </div>
                   </FormItem>
               </Form>
           </div>

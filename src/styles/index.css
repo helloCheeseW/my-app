@@ -1,15 +1,84 @@
-  body {
+/***
+***layout***
+***/
+body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
   }
-　.box-shadow{
+  .main {
+      height: 100vh;
+      padding-top: 50px;
+  }
+  .header {
+      position: absolute;
+      top: 0;
+      height: 50px;
+      width: 100%;
+      font-size: 18px;
+      padding: 0 20px;
+      line-height: 50px;
+      background-color: #366162;
+      color: #fff;
+  }
+  .menu {
+      height: 100%;
+      width: 210px;
+      float: left;
+      background-color: #366162;
+  }
+  .content {
+      height: 100%;
+      padding: 20px;
+      overflow: auto;
+      margin-left: 210px;
+      align-self: stretch;
+  }
+/***
+***nav***
+***/
+.menu ul li{
+    width: 210px;
+    height:42px;
+    line-height: 42px;
+    background-color: #2f9492;
+    color:#fff;
+    border-bottom:1px solid #088b85;
     text-align: center;
-  }
-  .login-form {
-    max-width: 600px;
-  }
-
-  .login-form-button {
+}
+.menu ul li a{
+    color: #fff;
+}
+.active{
+    background-color: #9ec4c7!important;
+}
+/***
+***login***
+***/
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.body {
+    width: 360px;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .3);
+}
+.title {
+    color: #fff;
+    font-size: 24px;
+    padding: 30px 20px;
+    background-color: #366162;
+}
+.form {
+    margin-top: 12px;
+    padding: 24px;
+}
+.btn {
     width: 100%;
-  }
+}
+
+/***
+***users***
+***/

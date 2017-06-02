@@ -1,23 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import { Router,Route,IndexRedirect,hashHistory } from 'react-router';
+import './styles/antdCover.css';
+import { Router,Route,hashHistory,IndexRedirect } from 'react-router';
 import LayoutNav from './components/layout';
 import Login from './views/login';
+import Users from './views/users';
 
-const rootRoute = (
-    <Route path="/" >
-        <IndexRedirect to="layout" />
-        <Route path="layout" component={LayoutNav}>
-            <IndexRedirect to="login" />
-            <Route path="login" component={Login} />
+ReactDOM.render((
+    <Router history={hashHistory}>
+        <Route component={LayoutNav}>
+            <IndexRedirect to="/user" />
+            <Route path="/users" component={Users}/>
         </Route>
-    </Route>
-);
+        <Route path="/login" component={Login}/>
+    </Router>
+), document.getElementById('layout-content'));
 
-ReactDOM.render(
-    <Router history={hashHistory}
-            routes={rootRoute}
-    />,
-    document.getElementById('layout-content')
-);
