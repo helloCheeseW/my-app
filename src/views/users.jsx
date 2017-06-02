@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
+import { Table,Button,Modal } from 'antd';
 
 
 class Users extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            visible: false,
+        }
+    };
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+    handleOk = () => {
+        this.setState({
+            ModalText: 'The modal will be closed after two seconds',
+            confirmLoading: true,
+        });
+        setTimeout(() => {
+            this.setState({
+                visible: false,
+                confirmLoading: false,
+            });
+        }, 2000);
+    };
+    handleCancel = () => {
+        this.setState({
+            visible: false,
+        });
+    };
     render() {
         const dataSource = [{
             key: '1',
@@ -17,21 +45,34 @@ class Users extends Component {
         }];
 
         const columns = [{
-            title: '姓名',
+            title: '用户名',
             dataIndex: 'name',
             key: 'name',
         }, {
-            title: '年龄',
+            title: 'cookie密码',
             dataIndex: 'age',
             key: 'age',
         }, {
-            title: '住址',
+            title: 'cookie密码',
             dataIndex: 'address',
             key: 'address',
         }];
         return (
             <div className="user">
-                <Table dataSource={dataSource} columns={columns} />
+                <div className="button-container">
+                    <Button type="primary" onClick={this.showModal}>添加用户</Button>
+                </div>
+                <div className="clearfix">
+                    <Table dataSource={dataSource} columns={columns} />
+                </div>
+                <Modal title="添加新用户"
+                       visible={this.state.visible}
+                       onOk={this.handleOk}
+                       confirmLoading={this.state.confirmLoading}
+                       onCancel={this.handleCancel}
+                >
+                    <p>123</p>
+                </Modal>
             </div>
         );
     }

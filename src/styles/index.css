@@ -18,7 +18,7 @@ body {
       font-size: 18px;
       padding: 0 20px;
       line-height: 50px;
-      background-color: #004b49;
+      background-color: #34605f;
       color: #fff;
   }
   .menu {
@@ -91,3 +91,10 @@ body {
 /***
 ***users***
 ***/
+.button-container{
+    float: right;
+    padding:10px;
+}
+.clearfix{
+    clear: both;
+}
