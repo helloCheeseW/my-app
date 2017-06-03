@@ -19,10 +19,10 @@ class LayoutNav extends Component{
                                 <Link to={`/users`}><Icon type="user"/> 用户管理</Link>
                             </li>
                             <li className={classNames({'active':pathname.indexOf('/produce')>=0})}>
-                                <Link to={`/produce`}><Icon type="user"/> 用户管理</Link>
+                                <Link to={`/produce`}><Icon type="menu-unfold" /> 商品分单</Link>
                             </li>
                             <li className={classNames({'active':pathname.indexOf('/buy')>=0})}>
-                                <Link to={`/buy`}><Icon type="user"/> 用户管理</Link>
+                                <Link to={`/buy`}><Icon type="credit-card" />  自助下单</Link>
                             </li>
                         </ul>
                     </div>

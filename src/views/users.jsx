@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Table,Button,Modal } from 'antd';
+import { Table,Button,Modal,Form,Select,Input } from 'antd';
 
+const FormItem = Form.Item;
+const Option = Select.Option;
 
 class Users extends Component {
     constructor(props) {
@@ -35,13 +37,19 @@ class Users extends Component {
         const dataSource = [{
             key: '1',
             name: '胡彦斌',
-            age: 32,
-            address: '西湖区湖底公园1号'
+            pageCookie: 62234523678,
+            almCookie: 42124142423,
+            type:'123',
+            status:'qe',
+            rule:'qe'
         }, {
             key: '2',
             name: '胡彦祖',
-            age: 42,
-            address: '西湖区湖底公园1号'
+            pageCookie: 42124142423,
+            almCookie: 42124142423,
+            type:'223',
+            status:'status',
+            rule:'status',
         }];
 
         const columns = [{
@@ -49,14 +57,40 @@ class Users extends Component {
             dataIndex: 'name',
             key: 'name',
         }, {
-            title: 'cookie密码',
-            dataIndex: 'age',
-            key: 'age',
+            title: '订单页面cookie',
+            dataIndex: 'pageCookie',
+            key: 'pageCookie',
         }, {
-            title: 'cookie密码',
-            dataIndex: 'address',
-            key: 'address',
+            title: '阿里妈妈cookie',
+            dataIndex: 'almCookie',
+            key: 'almCookie',
+        },{
+            title: '类型',
+            dataIndex: 'type',
+            key: 'type',
+        },{
+            title: '状态',
+            dataIndex: 'status',
+            key: 'status',
+        },{
+            title: '分单规则',
+            dataIndex: 'rule',
+            key: 'rule',
+        },{
+            title: '操作',
+            key: 'handle',
+            render: (text, record) => (
+                <div>
+                    <Button>删除</Button>
+                    <Button className="ml5">抓取</Button>
+                </div>
+            ),
         }];
+        const { getFieldDecorator } = this.props.form;
+        const formItemLayout = {
+            labelCol: { span: 7 },
+            wrapperCol: { span: 16 },
+        };
         return (
             <div className="user">
                 <div className="button-container">
@@ -71,11 +105,47 @@ class Users extends Component {
                        confirmLoading={this.state.confirmLoading}
                        onCancel={this.handleCancel}
                 >
-                    <p>123</p>
+                    <Form onSubmit={this.handleSubmit} className="form">
+                        <FormItem {...formItemLayout} label="用户名">
+                            {getFieldDecorator('userName', {
+                                rules: [{ required: true, message: '请输入用户名' }],
+                            })(
+                                <Input placeholder="请输入用户名" />
+                            )}
+                        </FormItem>
+                        <FormItem {...formItemLayout} label="订单页面">
+                            {getFieldDecorator('page-password', {
+                                rules: [{ required: true, message: '请输入订单页面cookie' }],
+                            })(
+                                <Input type="password" placeholder="请输入订单页面cookie" />
+                            )}
+                        </FormItem>
+                        <FormItem {...formItemLayout} label="阿里妈妈">
+                            {getFieldDecorator('alm-password', {
+                                rules: [{ required: true, message: '请输入阿里妈妈cookie' }],
+                            })(
+                                <Input type="password" placeholder="请输入阿里妈妈cookie" />
+                            )}
+                        </FormItem>
+                        <FormItem {...formItemLayout} label="类型">
+                            {getFieldDecorator('select', {
+                                rules: [
+                                    { required: true, message: '请选择类型' },
+                                ],
+                            })(
+                                <Select placeholder="请选择类型">
+                                    <Option value="0">店铺</Option>
+                                    <Option value="1">阿里妈妈</Option>
+                                    <Option value="2">小号</Option>
+                                </Select>
+                            )}
+                        </FormItem>
+                    </Form>
                 </Modal>
             </div>
         );
     }
 }
 
+Users = Form.create()(Users);
 export default Users;
