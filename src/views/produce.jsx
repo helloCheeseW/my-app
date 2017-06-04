@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button } from 'antd';
 
 class Produce extends Component {
 
@@ -7,7 +7,9 @@ class Produce extends Component {
         return (
             <div>
                 <div>
-                    <div>Welcome produce page</div>
+                    <div>
+                        <Button type="primary">添加商品</Button>
+                    </div>
                 </div>
             </div>
         );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { Table,Button,Modal,Form,Select,Input } from 'antd';
 
 const FormItem = Form.Item;
@@ -73,16 +74,12 @@ class Users extends Component {
             dataIndex: 'status',
             key: 'status',
         },{
-            title: '分单规则',
-            dataIndex: 'rule',
-            key: 'rule',
-        },{
             title: '操作',
             key: 'handle',
             render: (text, record) => (
                 <div>
-                    <Button>删除</Button>
-                    <Button className="ml5">抓取</Button>
+                    <Link to={`/users/edit`}><Button>编辑</Button></Link>
+                    <Button className="ml5">删除</Button>
                 </div>
             ),
         }];
