@@ -12,14 +12,13 @@ class EditUser extends Component {
         }
     };
 
-    handleOk = () => {
-
-        setTimeout(() => {
-            this.setState({
-                visible: false,
-                confirmLoading: false,
-            });
-        }, 2000);
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
     };
 
     render() {
@@ -54,7 +53,7 @@ class EditUser extends Component {
                         )}
                     </FormItem>
                     <FormItem {...formItemLayout}>
-                        <Button type="primary" className="ml90">更新</Button>
+                        <Button type="primary" htmlType="submit" className="ml90">更新</Button>
                         <Link to={`/users`}><Button className="ml5">取消</Button></Link>
                     </FormItem>
                 </Form>

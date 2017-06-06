@@ -9,6 +9,8 @@ import Users from './views/users';
 import EditUser from './views/editUser';
 import Produce from './views/produce';
 import Buy from './views/buy';
+import Order from './views/order';
+import Monitor from './views/monitor';
 
 
 import { createStore, applyMiddleware } from 'redux'
@@ -31,7 +33,9 @@ ReactDOM.render((
                 <Route path="/users" component={Users}/>
                 <Route path="users/edit" component={EditUser}/>
                 <Route path="/produce" component={Produce}/>
+                <Route path="/order" component={Order}/>
                 <Route path="/buy" component={Buy}/>
+                <Route path="/monitor" component={Monitor}/>
             </Route>
             <Route path="/login" component={Login}/>
         </Router>

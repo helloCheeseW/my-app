@@ -9,6 +9,10 @@
     background-color: #88a1a4!important;
     border-color: #88a1a4!important;
 }
+
+.ant-checkbox-group{
+    display: inline;
+}
 /***
 ***page***
 ***/

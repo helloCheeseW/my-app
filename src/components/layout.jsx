@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import lodash from 'lodash';
+import jquery from 'jquery';
 import classNames from 'classnames';
 import { Icon } from 'antd';
 import { Link } from 'react-router';
+window._ = lodash;
+window.$ = jquery;
 
 class LayoutNav extends Component{
     render(){
@@ -21,8 +25,14 @@ class LayoutNav extends Component{
                             <li className={classNames({'active':pathname.indexOf('/produce')>=0})}>
                                 <Link to={`/produce`}><Icon type="menu-unfold" /> 商品关联</Link>
                             </li>
+                            <li className={classNames({'active':pathname.indexOf('/order')>=0})}>
+                                <Link to={`/order`}><Icon type="shopping-cart" />  订单管理</Link>
+                            </li>
                             <li className={classNames({'active':pathname.indexOf('/buy')>=0})}>
                                 <Link to={`/buy`}><Icon type="credit-card" />  自助下单</Link>
+                            </li>
+                            <li className={classNames({'active':pathname.indexOf('/monitor')>=0})}>
+                                <Link to={`/monitor`}><Icon type="desktop" />  价格监控</Link>
                             </li>
                         </ul>
                     </div>
